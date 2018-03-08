@@ -102,7 +102,6 @@
     "networkApiVersion": "2017-04-01",
     "storageApiVersion": "2015-06-15",
     "insightsApiVersion": "2015-04-01",
-	"singleQuote": "\'",
 	"agentDownloadUrl": "https://github.com/Microsoft/vsts-agent/releases/download/v2.129.1/vsts-agent-win-x64-2.129.1.zip"
   },
   "resources": [
