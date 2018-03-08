@@ -1,10 +1,10 @@
-param([string]$agentDownloadUrl = 'https://github.com/Microsoft/vsts-agent/releases/download/v2.129.1/vsts-agent-win-x64-2.129.1.zip',
-	  [string]$vstsAccount = 'testking123',
-	  [string]$projectName = 'AzureProj',
-	  [string]$deploymentGroupName = 'DeploymentGroupScaleTest-automated',
-	  [string]$PATToken = 'jdlfj',
-	  [string]$tags = 'Web',
-	  [int]$agentsCount = 2)
+param([string]$agentDownloadUrl,
+	  [string]$vstsAccount,
+	  [string]$projectName,
+	  [string]$deploymentGroupName,
+	  [string]$PATToken,
+	  [string]$tags,
+	  [int]$agentsCount = 50)
 
 $ErrorActionPreference="Stop"
     
