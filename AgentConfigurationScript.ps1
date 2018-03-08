@@ -7,7 +7,7 @@ param([string]$agentDownloadUrl,
 	  [string]$tags,
 	  [int]$agentsCount = 50)
 
-for($j=0;$j -le $agentsCount ;$j++)
+for($j=1; $j -le $agentsCount; $j++)
 {
     $ErrorActionPreference="Stop"
     
@@ -37,7 +37,7 @@ for($j=0;$j -le $agentsCount ;$j++)
     }
     
     $agentZip="$PWD\agent.zip"
-	  $vstsUrl = 'https://' + $vstsAccount + '.visualstudio.com/'
+    $vstsUrl = 'https://' + $vstsAccount + '.visualstudio.com/'
     
     $DefaultProxy=[System.Net.WebRequest]::DefaultWebProxy;$securityProtocol=@();
     $securityProtocol+=[Net.ServicePointManager]::SecurityProtocol;
