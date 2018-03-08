@@ -1,0 +1,42 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmSku": {
+      "value": "Standard_A1"
+    },
+    "windowsOSVersion": {
+      "value": "2012-R2-Datacenter"
+    },
+    "vmssName": {
+      "value": "dgscalevmss"
+    },
+    "instanceCount": {
+      "value": 1
+    },
+    "adminUsername": {
+      "value": "testuser"
+    },
+    "adminPassword": {
+      "value": ""
+    },
+	  "VSTSAccountName": {
+		  "value": "dummyaccount"
+	  },
+	  "TeamProject": {
+		  "value": "dummyProject"  
+	  },
+	  "DeploymentGroup": {
+		  "value": "sampleDG"  
+	  },
+	  "Tags": {
+		  "value": "Web"  
+	  },
+    "agentsCountPerVM": {
+	  	"value": 2  
+	  },
+	  "PATToken": {
+		  "value": ""  
+	  }
+  }
+}
