@@ -254,7 +254,7 @@
                   "typeHandlerVersion": "1.8",
                   "autoUpgradeMinorVersion": true,
                   "protectedSettings": {
-                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File AgentConfigScript.ps1', ' \"', variables('agentDownloadUrl'), '\" \"', parameters('VSTSAccountName'),'\" \"', parameters('TeamProject'),'\" \"', parameters('DeploymentGroup'),'\" \"', parameters('PATToken'),'\" \"', parameters('Tags'),'\" ', parameters('agentsCountPerVM'))]"
+                    "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File AgentConfigScript.ps1"
                   },
                   "type": "CustomScriptExtension"
                 }
