@@ -35,14 +35,6 @@
       },
       "maxValue": 1000
     },
-    "agentsCountPerVM": {
-      "type": "int",
-      "metadata": {
-        "description": "Number of agents per VM."
-      },
-	  "defaultValue": 1,
-      "maxValue": 50
-    },
     "adminUsername": {
       "type": "string",
       "metadata": {
@@ -64,14 +56,18 @@
 	"DeploymentGroup": {
 		"type": "string"
 	},
-	"AgentsCount": {
-		"type": "string",
-		"defaultValue": ""
-	},
 	"Tags": {
 		"type": "string",
 		"defaultValue": ""
 	},
+    "agentsCountPerVM": {
+      "type": "int",
+      "metadata": {
+        "description": "Number of agents per VM."
+      },
+	  "defaultValue": 1,
+      "maxValue": 50
+    },
 	"PATToken": {
 		"type": "securestring"
 	}
