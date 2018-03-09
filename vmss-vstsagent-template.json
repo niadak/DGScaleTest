@@ -254,7 +254,7 @@
                   "typeHandlerVersion": "1.9",
                   "autoUpgradeMinorVersion": true,
                   "protectedSettings": {
-                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file abc.ps1', ' ', parameters('agentDownloadUrl'))]"
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file abc.ps1', ' ', variables('agentDownloadUrl'))]"
                   },
                   "type": "CustomScriptExtension"
                 }
