@@ -257,7 +257,7 @@
                   "typeHandlerVersion": "1.9",
                   "autoUpgradeMinorVersion": true,
                   "protectedSettings": {
-                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file AgentConfigurationScript.ps1', ' -agentDownloadUrl ', parameters('agentDownloadUrl'), ' -vstsUrl ', parameters('vstsUrl'), ' -projectName ', parameters('projectName'), ' -deploymentGroupName ', parameters('deploymentGroupName'), ' -PATToken ', parameters('PATToken'), ' -tags ', parameters('tags'), ' -agentsCount  ', parameters('agentsCountPerVM '))]"
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file AgentConfigurationScript.ps1', ' -agentDownloadUrl ', parameters('agentDownloadUrl'), ' -vstsUrl ', parameters('vstsUrl'), ' -projectName ', parameters('projectName'), ' -deploymentGroupName ', parameters('deploymentGroupName'), ' -PATToken ', parameters('PATToken'), ' -tags ', parameters('tags'), ' -agentsCount ', parameters('agentsCountPerVM'))]"
                   },
                   "type": "CustomScriptExtension"
                 }
