@@ -20,23 +20,26 @@
     "adminPassword": {
       "value": ""
     },
-	  "VSTSAccountName": {
-		  "value": "dummyaccount"
-	  },
-	  "TeamProject": {
-		  "value": "dummyProject"  
-	  },
-	  "DeploymentGroup": {
-		  "value": "sampleDG"  
-	  },
-	  "Tags": {
-		  "value": "Web"  
-	  },
+    "vstsUrl": {
+	  "value": "dummyaccount"
+	},
+	"projectName": {
+	  "value": "dummyProject"  
+	},
+	"deploymentGroupName": {
+	  "value": "sampleDG"  
+	},
+	"tags": {
+	  "value": "Web"  
+	},
     "agentsCountPerVM": {
-	  	"value": 2  
-	  },
-	  "PATToken": {
-		  "value": ""  
-	  }
+	  "value": 2  
+	},
+	"PATToken": {
+	  "value": ""  
+	},
+	"agentDownloadUrl": {
+	  "value": "https://github.com/Microsoft/vsts-agent/releases/download/v2.129.1/vsts-agent-win-x64-2.129.1.zip"  
+	}
   }
 }
