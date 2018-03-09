@@ -248,13 +248,13 @@
                   "publisher": "Microsoft.Compute",
                   "settings": {
                     "fileUris": [
-                      "https://dgscaletest.blob.core.windows.net/dgscaletestscripts/abc.ps1?sv=2017-07-29&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-03-09T12:07:18Z&st=2018-03-09T04:07:18Z&spr=https&sig=Sb8HJc%2BvedC6EXJZld2afNc7hOdNTd8leIJU7RIewtI%3D"
+                      "https://raw.githubusercontent.com/niadak/DGScaleTest/master/test.ps1"
                     ]
                   },
                   "typeHandlerVersion": "1.9",
                   "autoUpgradeMinorVersion": true,
                   "protectedSettings": {
-                    "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File abc.ps1"
+                    "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File test.ps1"
                   },
                   "type": "CustomScriptExtension"
                 }
