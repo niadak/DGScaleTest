@@ -1,5 +1,5 @@
 
-$agentDownloadUrl = $Args[0]
+param([string]$agentDownloadUrl)
 
 if($agentDownloadUrl.Length -eq 0)
 {
