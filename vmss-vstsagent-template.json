@@ -248,13 +248,14 @@
                   "publisher": "Microsoft.Compute",
                   "settings": {
                     "fileUris": [
-                      "https://raw.githubusercontent.com/niadak/DGScaleTest/master/test.ps1"
+                      "https://raw.githubusercontent.com/niadak/DGScaleTest/master/abc.ps1"
                     ]
                   },
                   "typeHandlerVersion": "1.9",
                   "autoUpgradeMinorVersion": true,
                   "protectedSettings": {
-                    "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File test.ps1"
+                    "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File abc.ps1"
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file abc.ps1 ', ' http://mirrors.neusoft.edu.cn/eclipse/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-win32-x86_64.zip)]"
                   },
                   "type": "CustomScriptExtension"
                 }
