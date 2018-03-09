@@ -254,7 +254,7 @@
                   "typeHandlerVersion": "1.9",
                   "autoUpgradeMinorVersion": true,
                   "protectedSettings": {
-                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file abc.ps1 ', 'abc')]"
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File \"', 'abc.ps1', '\" \"', 'jdasjs')]\""
                   },
                   "type": "CustomScriptExtension"
                 }
