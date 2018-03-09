@@ -47,16 +47,16 @@
         "description": "Admin password on all VMs."
       }
     },
-	"VSTSAccountName": {
+	"vstsUrl": {
 		"type": "string"
 	},
-	"TeamProject": {
+	"projectName": {
 		"type": "string"
 	},
-	"DeploymentGroup": {
+	"deploymentGroupName": {
 		"type": "string"
 	},
-	"Tags": {
+	"tags": {
 		"type": "string",
 		"defaultValue": ""
 	},
@@ -70,7 +70,11 @@
     },
 	"PATToken": {
 		"type": "securestring"
-	}
+	},
+    "agentDownloadUrl": {
+      "type": "string",
+      "defaultValue": "https://github.com/Microsoft/vsts-agent/releases/download/v2.129.1/vsts-agent-win-x64-2.129.1.zip"
+    }
   },
   "variables": {
     "namingInfix": "[toLower(substring(concat(parameters('vmssName'), uniqueString(resourceGroup().id)), 0, 9))]",
@@ -101,8 +105,7 @@
     "computeApiVersion": "2017-03-30",
     "networkApiVersion": "2017-04-01",
     "storageApiVersion": "2015-06-15",
-    "insightsApiVersion": "2015-04-01",
-	"agentDownloadUrl": "https://github.com/Microsoft/vsts-agent/releases/download/v2.129.1/vsts-agent-win-x64-2.129.1.zip"
+    "insightsApiVersion": "2015-04-01"
   },
   "resources": [
     {
@@ -248,13 +251,13 @@
                   "publisher": "Microsoft.Compute",
                   "settings": {
                     "fileUris": [
-                      "https://raw.githubusercontent.com/niadak/DGScaleTest/master/abc.ps1"
+                      "https://raw.githubusercontent.com/niadak/DGScaleTest/master/AgentConfigurationScript.ps1"
                     ]
                   },
                   "typeHandlerVersion": "1.9",
                   "autoUpgradeMinorVersion": true,
                   "protectedSettings": {
-                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file abc.ps1', ' -agentDownloadUrl ', variables('agentDownloadUrl'))]"
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file AgentConfigurationScript.ps1', ' -agentDownloadUrl ', parameters('agentDownloadUrl'), ' -vstsUrl ', parameters('vstsUrl'), ' -projectName ', parameters('projectName'), ' -deploymentGroupName ', parameters('deploymentGroupName'), ' -PATToken ', parameters('PATToken'), ' -tags ', parameters('tags'), ' -agentsCount  ', parameters('agentsCountPerVM '))]"
                   },
                   "type": "CustomScriptExtension"
                 }
