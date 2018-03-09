@@ -1,5 +1,5 @@
 param([string]$agentDownloadUrl,
-	  [string]$vstsAccount,
+	  [string]$vstsUrl,
 	  [string]$projectName,
 	  [string]$deploymentGroupName,
 	  [string]$PATToken,
@@ -7,12 +7,7 @@ param([string]$agentDownloadUrl,
 	  [int]$agentsCount = 50)
 
 $ErrorActionPreference="Stop"
-    
-If(-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] “Administrator”))
-{ 
-    throw "Run command in Administrator PowerShell Prompt"
-}
-    
+        
 If(-NOT (Test-Path $env:SystemDrive\'vstsagent'))
 {
     mkdir $env:SystemDrive\'vstsagent'
@@ -36,7 +31,6 @@ for($i=1; $i -le $agentsCount; $i++)
     }
     
     $agentZip= $env:SystemDrive + '\vstsagent\agent.zip'
-    $vstsUrl = 'https://' + $vstsAccount + '.visualstudio.com/'
 
     if($i -eq 1)
     {
