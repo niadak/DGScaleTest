@@ -105,6 +105,7 @@
     "computeApiVersion": "2017-03-30",
     "networkApiVersion": "2017-04-01",
     "storageApiVersion": "2015-06-15",
+    "agentsCountPerVM1": 2,
     "insightsApiVersion": "2015-04-01"
   },
   "resources": [
@@ -257,7 +258,7 @@
                   "typeHandlerVersion": "1.9",
                   "autoUpgradeMinorVersion": true,
                   "protectedSettings": {
-                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file AgentConfigurationScript.ps1', ' -agentDownloadUrl ', parameters('agentDownloadUrl'), ' -vstsUrl ', parameters('vstsUrl'), ' -projectName ', parameters('projectName'), ' -deploymentGroupName ', parameters('deploymentGroupName'), ' -PATToken ', parameters('PATToken'), ' -tags ', parameters('tags'), ' -agentsCount ', parameters('agentsCountPerVM'))]"
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -file AgentConfigurationScript.ps1', ' -agentDownloadUrl ', parameters('agentDownloadUrl'), ' -vstsUrl ', parameters('vstsUrl'), ' -projectName ', parameters('projectName'), ' -deploymentGroupName ', parameters('deploymentGroupName'), ' -PATToken ', parameters('PATToken'), ' -tags ', parameters('tags'), ' -agentsCount ', variables('agentsCountPerVM1'))]"
                   },
                   "type": "CustomScriptExtension"
                 }
