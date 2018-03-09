@@ -7,6 +7,11 @@ param([string]$agentDownloadUrl,
 	  [int]$agentsCount = 50)
 
 $ErrorActionPreference="Stop"
+
+If(-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent() ).IsInRole( [Security.Principal.WindowsBuiltInRole] “Administrator”))
+{ 
+    throw "Run command in Administrator PowerShell Prompt"
+}
         
 If(-NOT (Test-Path $env:SystemDrive\'vstsagent'))
 {
