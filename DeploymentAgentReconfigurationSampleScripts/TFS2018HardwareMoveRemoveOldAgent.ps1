@@ -1,7 +1,25 @@
-﻿param([string]$targetTFSUrl,
+<# 
+This script can be used as a guidance script to bring a deployment group agent online after TFS Hardware move activity. Post Hardware move, all the agents will be offline as the TFS server url has been updated. User can use\follow this script to bring them online.
+
+Inputs:
+
+1. targetTFSUrl : New TFS url after hardware move.
+2. patToken : PAT token from new TFS with Deployment group manage scope (atleast)
+3. agentDownloadUrl: this is optional, user can specify if she wants any specific agent version to be installed.
+4. existingAgentFolder: The script will Auto-detect the agent folder if it was running as windows service. User need to paas the path otherwise.
+5. action: By defalt the script will not do any update, it will just print what changes will happen after the script is applied. User need to set action parameter to 'apply' to update execute actual steps.
+
+Output:
+
+If action is set to apply, this script will delete the existing non usable offline agent and re-configure a new agent in with same name and properties inclusing tags. All the old deployment histroty will be deleted.
+#>
+
+
+
+param([string]$targetTFSUrl,
       [string]$patToken,
-      [string]$agentDownloadUrl = 'https://go.microsoft.com/fwlink/?linkid=867184',
       [string]$existingAgentFolder = "",
+      [string]$agentDownloadUrl = 'https://go.microsoft.com/fwlink/?linkid=867184',
       [string]$action = "PrintEffect")
 
 $ErrorActionPreference="Stop"
