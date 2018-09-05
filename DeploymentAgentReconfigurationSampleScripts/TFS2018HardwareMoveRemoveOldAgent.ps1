@@ -1,5 +1,5 @@
 <# 
-This script can be used as a guidance script to bring a deployment group agent online after TFS Hardware move activity. Post Hardware move, all the agents will be offline as the TFS server url has been updated. User can use\follow this script to bring them online.
+This script can be used as a guidance script to bring a deployment group agent online after TFS Hardware move activity for TFS2018. Post Hardware move, all the agents will be offline as the TFS server url has been updated. User can use\follow this script to bring them online.
 
 Inputs:
 1. targetTFSUrl : New TFS url after hardware move.
