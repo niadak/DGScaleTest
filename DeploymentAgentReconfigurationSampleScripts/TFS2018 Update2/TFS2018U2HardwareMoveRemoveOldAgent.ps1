@@ -9,7 +9,9 @@ Inputs:
 5. action: By defalt the script will not do any update, it will just print what changes will happen after the script is applied. User need to set action parameter to 'apply' to update execute actual steps.
 
 Output:
-If action is set to apply, this script will delete the existing non usable offline agent and re-configure a new agent in with same name and properties inclusing tags. All the old deployment histroty will be deleted.
+If action is set to apply, this script will
+1. Delete the existing non usable offline agent and re-configure a new agent in with same name and properties inclusing tags.
+2. All existing deployment histroty will be deleted.
 #>
 
 param([string]$targetTFSUrl,
