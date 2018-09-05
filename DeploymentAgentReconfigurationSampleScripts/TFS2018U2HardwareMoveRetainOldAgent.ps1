@@ -1,7 +1,25 @@
-﻿param([string]$targetTFSUrl,
+﻿<# 
+This script can be used as a guidance script to bring a deployment group agent online after TFS Hardware move activity for TFS2018 Update 2. Post Hardware move, all the agents will be offline as the TFS server url has been updated. User can use\follow this script to bring them online.
+
+Inputs:
+1. targetTFSUrl : New TFS url after hardware move.
+2. patToken : PAT token from new TFS with Deployment group manage scope (atleast)
+3. existingAgentFolder: The script will Auto-detect the agent folder if it was running as windows service. User need to paas the path otherwise.
+4. agentDownloadUrl: this is optional, user can specify if she wants any specific agent version to be installed.
+5. agentNamePostFix : this will be appened to the new agent name to resolve the exiting agent name conflict.
+6. action: By defalt the script will not do any update, it will just print what changes will happen after the script is applied. User need to set action parameter to 'apply' to update execute actual steps.
+
+Output:
+If action is set to apply, this script this script will
+1. Configure an new agent to the deployment group in the TFS with same properties as the existing non usable offline agent incluing tags. Name of the new agent will be appened by agentNamePostFix.
+2. It will add reconfigured tag to the new agent which can be used to filterout old agents during deployment.
+3. Old agents can be used to audit the existing deployment history."
+#>
+
+param([string]$targetTFSUrl,
       [string]$patToken,
-      [string]$agentDownloadUrl = 'https://vstsagentpackage.azureedge.net/agent/2.138.6/vsts-agent-win-x64-2.138.6.zip',
       [string]$existingAgentFolder = "",
+      [string]$agentDownloadUrl = 'https://vstsagentpackage.azureedge.net/agent/2.131.0/vsts-agent-win-x64-2.131.0.zip',
       [string]$agentNamePostFix = "Reconfigured",
       [string]$action = "PrintEffect")
 
