@@ -25,7 +25,7 @@ param([string]$targetTFSUrl,
 $ErrorActionPreference="Stop"
 
 # Basic validations
-If (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent() ).IsInRole( [Security.Principal.WindowsBuiltInRole] ìAdministratorî)){ 
+If (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent() ).IsInRole( [Security.Principal.WindowsBuiltInRole] ‚ÄúAdministrator‚Äù)){ 
     throw "Run command in an administrator PowerShell prompt"
 };
 
@@ -152,4 +152,4 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem;[System.IO.Compression.Z
 
 # configure the agent
 
-.\config.cmd --url $targetTFSUrl --poolNane $poolName --agent $newAgentName --auth Integrated --runasservice --work '_work' --unattended
+.\config.cmd --url $targetTFSUrl --pool $poolName --agent $newAgentName --auth Integrated --runasservice --work '_work' --unattended
