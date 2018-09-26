@@ -1,6 +1,6 @@
-﻿<# 
+<# 
 This script is applicable for TFS 2018 or later.
-This is a guidance script to create deployment groups to the target TFS after detach\attach activity. The script is applicable if both source and target TFS is accessibile
+This is a guidance script to create deployment groupa to the target TFS after detach\attach activity. The script is applicable if both source and target TFS is accessibile and
 
 Inputs:
 1. sourceTFSUrl : Source (Old) TFS instance url.
@@ -55,16 +55,16 @@ for($i=0; $i -lt $projects.count; $i++ )
     for($j=0; $j -lt $dgs.count; $j++ )
     {
         $dg = $dgs.value[$j]
+        $dgName = $dg.name 
         $existingDG = $existingDGs.value | Where-Object {$_.Name -eq $dg.name}
-        if ($existingDG -eq "")
+        if ($existingDG -ne $null)
         {
-            $dgName = $dg.name 
             Write-Verbose -Verbose "Deployment group $dgName is already present in the the project $projectName of the target TFS $targetTFSUrl."
         }
         else
         {
             $dp = $existingDPs.value | Where-Object {$_.Name -eq $dg.pool.name}
-            if ($dp -eq "")
+            if ($dp -eq $null)
             {
                 $poolName = $dg.pool.name
                 Write-Verbose -Verbose "Creating a deployment pool with name $poolName on the target TFS $targetTFSUrl."
@@ -73,7 +73,6 @@ for($i=0; $i -lt $projects.count; $i++ )
                 $dp = Invoke-RestMethod -Uri $createDeploymentPoolUrl -Method POST -Headers @{Authorization = "Basic $encodedTargetPat"} -ContentType "application/json" -Body $pool
             }
 
-            $dgName = $dg.name
             Write-Verbose -Verbose "Creating a deployment group with name $dgName on the target TFS $targetTFSUrl."
             $dgBody = @{'name' = $dgName; 'pool' = @{'id' = $dp.id}} | ConvertTo-Json
             $createDeploymentGroupsUrl = $targetTFSUrl + '/' + $collectionName + '/' + $projectName + '/_apis/distributedtask/deploymentgroups/?api-version=' + $apiVersion
