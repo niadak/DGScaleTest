@@ -81,7 +81,7 @@ $agentName = $agentproperties.agentName;
 
 if ($sourceTFSUrl.StartsWith($targetTFSUrl)){
     Write-Verbose -Verbose "Agent $agentName is already configured to the TFS $targetTFSUrl";
-    #return 0;
+    return 0;
 }
 
 # Get the Deployment group name
