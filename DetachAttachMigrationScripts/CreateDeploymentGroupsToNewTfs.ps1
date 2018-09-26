@@ -1,6 +1,6 @@
 ﻿<# 
 This script is applicable for TFS 2018 or later.
-This is a guidance script to create deployment groupa to the target TFS after detach\attach activity. The script is applicable if both source and target TFS is accessibile and
+This is a guidance script to create deployment groups to the target TFS after detach\attach activity. The script is applicable if both source and target TFS is accessibile
 
 Inputs:
 1. sourceTFSUrl : Source (Old) TFS instance url.
