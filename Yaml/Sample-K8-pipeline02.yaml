@@ -1,0 +1,15 @@
+  jobs:
+  - job: job1_Environment01_SG01
+    pool: default
+    steps:
+    - script: echo Hello, world!
+      displayName: 'Run a one-line script'
+
+    - task: Kubernetes@1
+      displayName: 'kubectl get'
+      inputs:
+        connectionType: 'Kubernetes Service Connection'
+        kubernetesServiceEndpoint: K8-SE-01
+        namespace: 'madhuv-n1'
+        command: apply
+        arguments: '-f azure-vote-all-in-one-redis.yaml'
